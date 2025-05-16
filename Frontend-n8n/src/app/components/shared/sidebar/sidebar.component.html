@@ -1,2 +1,27 @@
-<p>sidebar works!</p>
-holaa
+<div class="sidebar">
+    <div class="logo">
+        <span (click)="redirectHome()" class="bold">HORIZON</span> <span class="purple">AI</span>
+    </div>
+
+    <!-- Navigation -->
+    <ul class="nav">
+        <li (click)="redirectCards()">All Templates</li>
+        <li>My Projects</li>
+        <li>Chat UI</li>
+        <li>Assistant UI</li>
+        <li>Other Pages</li>
+        <li class="dropdown" (click)="toggleDropdown()">
+            <div class="dropdown-header">
+                <span>Admin Pages</span>
+                <span class="material-icons chevron" [class.open]="isDropdownOpen">
+                    expand_more
+                </span>
+            </div>
+            <ul class="dropdown-menu" *ngIf="isDropdownOpen">
+                <li (click)="redirectCards()">Alll Templates</li>
+                <li>New Template</li>
+                <li>Edit Template</li>
+                <li>Users Overview</li>
+            </ul>
+        </li>
+    </ul>
