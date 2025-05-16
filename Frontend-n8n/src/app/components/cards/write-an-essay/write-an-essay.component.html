@@ -1,0 +1,33 @@
+<form #essayForm="ngForm" (ngSubmit)="onSubmit()" class="form-container">
+    <div class="form-section">
+        <h2>Essay Topic</h2>
+        <p>What your essay will be about?</p>
+
+        <textarea name="topic" [(ngModel)]="formData.topic" required placeholder="Type here your topic..."></textarea>
+
+        <label>Number of Paragraphs</label>
+        <select name="paragraphs" [(ngModel)]="formData.paragraphs" required>
+            <option value="" disabled selected>Select option</option>
+            <option *ngFor="let p of paragraphOptions" [value]="p">{{ p }}</option>
+        </select>
+
+        <label>Select your Essay type</label>
+        <select name="essayType" [(ngModel)]="formData.essayType" required>
+            <option value="" disabled selected>Select option</option>
+            <option *ngFor="let type of essayTypes" [value]="type">{{ type }}</option>
+        </select>
+
+        <button type="submit" [disabled]="!essayForm.form.valid">
+            Generate your Essay
+        </button>
+    </div>
+
+    <div class="form-section-output">
+        <h2>AI Output</h2>
+        <p>Enjoy your outstanding essay!</p>
+        <div class="output-box">
+            {{ result || 'Your generated response will appear here…' }}
+        </div>
+        <button type="button" (click)="copyText()">Copy text</button>
+    </div>
+</form>

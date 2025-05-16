@@ -6,17 +6,22 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/shared/sidebar/sidebar.component';
 import { HomeComponent } from './components/home/home.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { WriteAnEssayComponent } from './components/cards/write-an-essay/write-an-essay.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     HomeComponent,
-    CardsComponent
+    CardsComponent,
+    WriteAnEssayComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
